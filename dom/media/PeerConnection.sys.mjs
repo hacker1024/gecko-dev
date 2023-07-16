@@ -513,9 +513,8 @@ export class RTCPeerConnection {
     this._documentPrincipal = Cu.getWebIDLCallerPrincipal();
 
     if (_globalPCList._networkdown) {
-      throw new this._win.DOMException(
-        "Can't create RTCPeerConnections when the network is down",
-        "InvalidStateError"
+      this.logWarning(
+        "Can't create RTCPeerConnections when the network is down"
       );
     }
 
